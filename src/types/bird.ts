@@ -18,12 +18,12 @@ export interface Bird {
   // };
   description: string;
   size: string;
-  // habitat: string[];
-  // characteristics: {
-  //   color: string[];
-  //   beak: string;
-  //   size: string;
-  // };
+  habitat: string[];
+  characteristics: {
+    color: string[];
+    beak: string;
+    size: string;
+  };
   level: number; // Mastery level for the user
   correctGuesses: number;
   totalGuesses: number;

@@ -15,7 +15,9 @@ export const birds: Bird[] = Object.values(birdSongMetadata).map((metadata: any)
   size: "Not available",
   level: metadata.level || 0,
   correctGuesses: metadata.correctGuesses || 0,
-  totalGuesses: metadata.totalGuesses || 0
+  totalGuesses: metadata.totalGuesses || 0,
+  habitat: metadata.habitat || "Unknown habitat",
+  characteristics: metadata.characteristics || "No characteristics available"
 }));
 
 // Placeholder image and sound

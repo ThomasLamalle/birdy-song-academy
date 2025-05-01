@@ -44,7 +44,6 @@ export const getAllSongsForBird = (scientificName: string, metadataItems: SongMe
 
 // Function to get image path for a bird
 export const getBirdImagePath = (file_id: string): string => {
-  const imagePath = `/bird_images/${file_id}/Image_1.jpg`;
-  console.log(`Got image path : ${imagePath}`)
+  const imagePath = `/bird_images/${file_id}/${file_id}_1.jpg`;
   return imagePath;
 };

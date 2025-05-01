@@ -75,6 +75,7 @@ const BirdCard = ({ bird }: BirdCardProps) => {
           className="w-full h-full object-cover"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
+            console.error(`Error loading image for bird: ${bird.image_path}, path: ${bird.image_path}`);
             target.src = '/birds/placeholder.jpg';
           }}
         />
@@ -103,12 +104,12 @@ const BirdCard = ({ bird }: BirdCardProps) => {
                 <div className="text-sm">
                   <span className="font-medium">Taille:</span> {bird.size}
                 </div>
-                {/* <div className="text-sm">
+                <div className="text-sm">
                   <span className="font-medium">Bec:</span> {bird.characteristics.beak}
                 </div>
                 <div className="text-sm col-span-2">
                   <span className="font-medium">Couleurs:</span> {bird.characteristics.color.join(', ')}
-                </div> */}
+                </div>
               </div>
             </div>
 

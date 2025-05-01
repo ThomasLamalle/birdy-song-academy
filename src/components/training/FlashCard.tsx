@@ -105,16 +105,30 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
               ) : (
                 <>
                   <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 mb-4 rounded-md overflow-hidden">
-                    {bird.image_path && (
+                    {bird.image_path ? (
                       <img
                         src={bird.image_path}
                         alt="Oiseau à identifier"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src = '/birds/placeholder.jpg';
+                          if (target && target.tagName === 'IMG') {
+                            console.error(`Image failed to load: ${target.src}`);
+                            target.src = '/birds/placeholder.jpg';
+                            toast({
+                              title: "Erreur de chargement de l'image",
+                              description: "Impossible de charger l'image de l'oiseau. Une image de remplacement a été affichée.",
+                              variant: "destructive"
+                            });
+                          } else {
+                            console.error('Error: Target is not an image element.', e);
+                          }
                         }}
                       />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gray-300 dark:bg-gray-600">
+                        <p className="text-gray-500 dark:text-gray-400">Aucune image disponible</p>
+                      </div>
                     )}
                   </div>
                   <p className="text-center text-gray-600 dark:text-gray-300">
@@ -141,7 +155,12 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = '/birds/placeholder.jpg';
+                    if (target && target.tagName === 'IMG') {
+                      console.error(`Image failed to load: ${target.src}`);
+                      target.src = '/birds/placeholder.jpg';
+                    } else {
+                      console.error('Error: Target is not an image element.', e);
+                    }
                   }}
                 />
               </div>
