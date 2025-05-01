@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,8 +62,29 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        birdy: {
+          green: {
+            DEFAULT: '#2D6A4F',
+            dark: '#1B4332',
+            light: '#40916C'
+          },
+          blue: {
+            DEFAULT: '#40A0FF',
+            dark: '#1A73E8',
+            light: '#74C0FC'
+          },
+          brown: {
+            DEFAULT: '#8B4513',
+            light: '#A67C52'
+          },
+          beige: '#F5F0E1'
+        }
 			},
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Source Sans Pro', 'sans-serif'],
+      },
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -84,11 +106,16 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'flip': {
+          '0%, 100%': { transform: 'rotateY(0deg)' },
+          '50%': { transform: 'rotateY(180deg)' }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'flip': 'flip 1s ease-in-out'
 			}
 		}
 	},

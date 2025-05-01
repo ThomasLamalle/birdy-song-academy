@@ -1,14 +1,54 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React, { useState, useEffect } from 'react';
+import Layout from '@/components/layout/Layout';
+import Header from '@/components/layout/Header';
+import FlashCard from '@/components/training/FlashCard';
+import ModeToggle from '@/components/training/ModeToggle';
+import { birds, getRandomBirds } from '@/data/birds';
+
+const IndexPage = () => {
+  const [isSoundMode, setIsSoundMode] = useState(false);
+  const [currentBird, setCurrentBird] = useState(birds[0]);
+  const [seenBirds, setSeenBirds] = useState<string[]>([]);
+
+  useEffect(() => {
+    getNextBird();
+  }, []);
+
+  const toggleMode = () => {
+    setIsSoundMode(!isSoundMode);
+  };
+
+  const getNextBird = () => {
+    // Reset seen birds if all birds have been seen
+    if (seenBirds.length >= birds.length - 1) {
+      setSeenBirds([]);
+    }
+    
+    // Get a random bird that hasn't been seen
+    const unseenBirds = birds.filter(bird => !seenBirds.includes(bird.id));
+    const randomBird = unseenBirds[Math.floor(Math.random() * unseenBirds.length)];
+    
+    setCurrentBird(randomBird);
+    setSeenBirds([...seenBirds, randomBird.id]);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <Layout>
+      <Header 
+        title="Birdy" 
+        subtitle="Entraînez-vous à reconnaître les oiseaux"
+      />
+      
+      <ModeToggle isSoundMode={isSoundMode} onToggle={toggleMode} />
+
+      <FlashCard 
+        bird={currentBird}
+        isSoundMode={isSoundMode}
+        onNext={getNextBird}
+      />
+    </Layout>
   );
 };
 
-export default Index;
+export default IndexPage;
