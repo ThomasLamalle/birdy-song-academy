@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Bird } from '@/types/bird';
 import { Button } from '@/components/ui/button';
@@ -16,26 +15,29 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
-  
+
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
   };
 
   const playSound = () => {
     if (!audioRef.current) return;
-    
+
     if (isPlaying) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
       setIsPlaying(false);
     } else {
       audioRef.current.play().catch(error => {
+        console.error("Error playing audio:", error);
+        console.error("Audio source:", bird.sound);
+
+        // Fallback mechanism
         toast({
           title: "Erreur de lecture",
-          description: "Impossible de lire le son. Veuillez réessayer.",
+          description: "Impossible de lire le son. Veuillez vérifier le format ou réessayer.",
           variant: "destructive"
         });
-        console.error("Error playing audio:", error);
       });
       setIsPlaying(true);
     }
@@ -57,7 +59,7 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
 
   const getSoundInfo = () => {
     if (!bird.soundMetadata) return null;
-    
+
     return (
       <div className="text-xs text-center text-muted-foreground mt-2">
         <p>Type: {bird.soundMetadata.type}</p>
@@ -71,7 +73,7 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
       <div className="card-flip-container h-80 w-full">
         <div className={`card-flip ${isFlipped ? 'flipped' : ''}`}>
           {/* Front of card */}
-          <div 
+          <div
             className="card-front rounded-xl shadow-lg bg-white dark:bg-slate-800 overflow-hidden border border-muted"
             onClick={handleFlip}
           >
@@ -79,9 +81,9 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
               {isSoundMode ? (
                 <>
                   <div className="w-32 h-32 rounded-full bg-birdy-blue-light flex items-center justify-center mb-4">
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
+                    <Button
+                      variant="ghost"
+                      size="icon"
                       className="h-20 w-20 rounded-full bg-birdy-blue hover:bg-birdy-blue-dark text-white"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -104,9 +106,9 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
                 <>
                   <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 mb-4 rounded-md overflow-hidden">
                     {bird.image && (
-                      <img 
-                        src={bird.image} 
-                        alt="Oiseau à identifier" 
+                      <img
+                        src={bird.image}
+                        alt="Oiseau à identifier"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
@@ -125,17 +127,17 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
               </p>
             </div>
           </div>
-          
+
           {/* Back of card */}
-          <div 
+          <div
             className="card-back rounded-xl shadow-lg bg-white dark:bg-slate-800 overflow-hidden border border-muted"
             onClick={handleFlip}
           >
             <div className="p-4 flex flex-col items-center h-full relative">
               <div className="w-full h-40 bg-gray-200 dark:bg-gray-700 mb-4 rounded-md overflow-hidden">
-                <img 
-                  src={bird.image} 
-                  alt={bird.name} 
+                <img
+                  src={bird.image}
+                  alt={bird.name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -146,9 +148,9 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
               <h3 className="text-xl font-bold mb-1">{bird.name}</h3>
               <p className="text-sm italic text-gray-500 dark:text-gray-400 mb-2">{bird.scientificName}</p>
               {!isSoundMode && (
-                <Button 
-                  variant="outline" 
-                  size="sm" 
+                <Button
+                  variant="outline"
+                  size="sm"
                   className="mb-2 flex items-center gap-1"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -181,11 +183,16 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
         </Button>
       </div>
 
-      <audio 
+      <audio
         ref={audioRef}
-        src={bird.sound} 
+        src={bird.sound}
         onEnded={handleAudioEnded}
         preload="auto"
+        onError={(e) => {
+          console.error("Audio playback error:", e);
+          console.error("Audio source:", bird.sound);
+          console.error("Audio path:", audioRef.current?.src);
+        }}
       />
     </div>
   );
