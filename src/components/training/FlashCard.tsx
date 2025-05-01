@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Bird } from '@/types/bird';
 import { Button } from '@/components/ui/button';
@@ -179,7 +178,8 @@ const FlashCard = ({ bird, isSoundMode, onNext, onPrevious }: FlashCardProps) =>
                   <Button
                     variant="outline"
                     size="sm"
-                    className="mb-2 flex items-center gap-1"
+                    className="mb-2 flex items-center gap-1 visible"
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     onClick={(e) => {
                       e.stopPropagation();
                       playSound();
