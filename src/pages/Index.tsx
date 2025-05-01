@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import FlashCard from '@/components/training/FlashCard';
 import ModeToggle from '@/components/training/ModeToggle';
 import { birds, getRandomBirds } from '@/data/birds';
+import { Shuffle } from 'lucide-react';
 
 const IndexPage = () => {
   const [isSoundMode, setIsSoundMode] = useState(false);
@@ -48,14 +49,21 @@ const IndexPage = () => {
 
       <ModeToggle isSoundMode={isSoundMode} onToggle={toggleMode} />
 
-      <button onClick={shuffleBirds} className="btn btn-primary mt-4">Shuffle Birds</button>
-
       <FlashCard
         bird={shuffledBirds[currentIndex]}
         isSoundMode={isSoundMode}
         onNext={goToNext}
         onPrevious={goToPrevious}
       />
+
+      <div className="flex justify-center mt-4">
+        <button
+          onClick={shuffleBirds}
+          className="flex items-center justify-center text-primary hover:text-blue-600"
+        >
+          <Shuffle className="w-6 h-6" />
+        </button>
+      </div>
     </Layout>
   );
 };
