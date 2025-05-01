@@ -16,7 +16,7 @@ export const getSongPath = (fileId: string): string => {
     console.error("getSongPath: No fileId provided, returning placeholder");
     return "/sounds/placeholder.mp3";
   }
-  const path = `/songs/xc${fileId}.flac`;
+  const path = `/songs_mp3/xc${fileId}.mp3`;
   console.log("getSongPath: Generated song path:", path);
   return path;
 };
