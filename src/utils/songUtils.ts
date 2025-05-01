@@ -1,3 +1,4 @@
+
 interface SongMetadata {
   file_id: string;
   genus: string;
@@ -40,4 +41,11 @@ export const getAllSongsForBird = (scientificName: string, metadataItems: SongMe
     item.genus.toLowerCase() === genus.toLowerCase() &&
     item.species.toLowerCase() === species.toLowerCase()
   );
+};
+
+// Function to get image path for a bird
+export const getBirdImagePath = (birdName: string): string => {
+  // Convert bird name to a URL-friendly format (lowercase, replace spaces with underscores)
+  const formattedName = birdName.toLowerCase().replace(/\s+/g, '_');
+  return `/birds/${formattedName}.jpg`;
 };
