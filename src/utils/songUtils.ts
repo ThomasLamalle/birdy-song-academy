@@ -37,4 +37,3 @@ export const getAllSongsForBird = (scientificName: string, metadataItems: SongMe
     item.species.toLowerCase() === species.toLowerCase()
   );
 };
-
