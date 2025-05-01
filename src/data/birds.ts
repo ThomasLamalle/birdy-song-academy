@@ -9,7 +9,7 @@ export const birds: Bird[] = Object.values(birdSongMetadata).map((metadata: any)
   id: metadata.id,
   name: metadata.english_cname,
   scientificName: `${metadata.genus} ${metadata.species}`,
-  image_path: getBirdImagePath(metadata.file_id),
+  image_path: getBirdImagePath(metadata.english_cname),
   sound_path: getSongPath(metadata.file_id),
   description: "No description for now",
   size: "Not available",

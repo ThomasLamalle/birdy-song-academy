@@ -1,8 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Bird } from '@/types/bird';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Music, Volume2 } from 'lucide-react';
+
+const preloadImage = (src: string) => {
+  return new Promise<void>((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => resolve();
+    img.onerror = () => reject();
+  });
+};
 
 interface FlashCardProps {
   bird: Bird;
@@ -13,8 +22,20 @@ interface FlashCardProps {
 const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (bird.image_path) {
+      preloadImage(bird.image_path)
+        .then(() => setIsImageLoaded(true))
+        .catch(() => {
+          console.error(`Failed to preload image: ${bird.image_path}`);
+          setIsImageLoaded(true); // Fallback to show placeholder
+        });
+    }
+  }, [bird.image_path]);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -105,7 +126,7 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
               ) : (
                 <>
                   <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 mb-4 rounded-md overflow-hidden">
-                    {bird.image_path ? (
+                    {isImageLoaded && bird.image_path ? (
                       <img
                         src={bird.image_path}
                         alt="Oiseau à identifier"
@@ -126,9 +147,11 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
                         }}
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gray-300 dark:bg-gray-600">
-                        <p className="text-gray-500 dark:text-gray-400">Aucune image disponible</p>
-                      </div>
+                      <img
+                        src="/birds/placeholder.jpg"
+                        alt="Placeholder"
+                        className="w-full h-full object-cover"
+                      />
                     )}
                   </div>
                   <p className="text-center text-gray-600 dark:text-gray-300">
