@@ -2,7 +2,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.lovable.7b01af8b405242eaadb9933a754762a5',
+  appId: 'com.lovable.birdysongacademy',
   appName: 'birdy-song-academy',
   webDir: 'dist',
   server: {
