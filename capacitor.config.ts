@@ -6,7 +6,7 @@ const config: CapacitorConfig = {
   appName: 'birdy-song-academy',
   webDir: 'dist',
   server: {
-    url: "https://7b01af8b-4052-42ea-adb9-933a754762a5.lovableproject.com?forceHideBadge=true",
+    androidScheme: "https",
     cleartext: true
   },
   android: {

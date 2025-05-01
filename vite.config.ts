@@ -20,7 +20,6 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Configuration optimisée pour les applications mobiles
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
