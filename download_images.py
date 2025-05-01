@@ -20,9 +20,10 @@ os.makedirs(output_folder, exist_ok=True)
 with open(csv_file_path, mode="r", encoding="utf-8") as csv_file:
     reader = csv.DictReader(csv_file)
     for row in reader:
+        id_ = row["file_id"]
         bird_name = f"{row['genus']} {row['species']}".lower()
         search_query = f"{bird_name} bird"
-        bird_output_folder = os.path.join(output_folder, bird_name.replace(" ", "_"))
+        bird_output_folder = os.path.join(output_folder, id_)
 
         # Télécharge les images pour chaque oiseau
         try:

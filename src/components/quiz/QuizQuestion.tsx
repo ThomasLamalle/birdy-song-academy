@@ -13,12 +13,12 @@ interface QuizQuestionProps {
   totalQuestions: number;
 }
 
-const QuizQuestion = ({ 
-  correctBird, 
-  options, 
-  onAnswer, 
-  questionNumber, 
-  totalQuestions 
+const QuizQuestion = ({
+  correctBird,
+  options,
+  onAnswer,
+  questionNumber,
+  totalQuestions
 }: QuizQuestionProps) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answered, setAnswered] = useState(false);
@@ -28,7 +28,7 @@ const QuizQuestion = ({
 
   const playSound = () => {
     if (!audioRef.current) return;
-    
+
     if (isPlaying) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
@@ -52,12 +52,12 @@ const QuizQuestion = ({
 
   const handleOptionClick = (birdId: string) => {
     if (answered) return;
-    
+
     setSelectedAnswer(birdId);
     setAnswered(true);
-    
+
     const isCorrect = birdId === correctBird.id;
-    
+
     if (isCorrect) {
       toast({
         title: "Correct !",
@@ -73,7 +73,7 @@ const QuizQuestion = ({
         className: "bg-red-100 border-red-200 dark:bg-red-900 dark:border-red-800"
       });
     }
-    
+
     setTimeout(() => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -88,18 +88,18 @@ const QuizQuestion = ({
 
   const getButtonClass = (birdId: string) => {
     if (!answered) return "";
-    
+
     if (birdId === correctBird.id) {
       return "border-green-500 bg-green-100 dark:bg-green-900";
     }
-    
+
     if (birdId === selectedAnswer) {
       return "border-red-500 bg-red-100 dark:bg-red-900";
     }
-    
+
     return "opacity-50";
   };
-  
+
   return (
     <div className="w-full">
       <div className="mb-4 px-4">
@@ -108,19 +108,19 @@ const QuizQuestion = ({
             Question {questionNumber}/{totalQuestions}
           </span>
           <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-            <div 
+            <div
               className="h-full bg-birdy-blue rounded-full"
               style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
             ></div>
           </div>
         </div>
       </div>
-      
+
       <div className="flex flex-col items-center mb-6">
         <div className="w-24 h-24 rounded-full bg-birdy-blue-light flex items-center justify-center mb-4">
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             className="h-16 w-16 rounded-full bg-birdy-blue hover:bg-birdy-blue-dark text-white"
             onClick={playSound}
           >
@@ -135,13 +135,13 @@ const QuizQuestion = ({
         <p className="text-sm text-center text-muted-foreground">
           Écoutez le chant et sélectionnez l'oiseau correspondant
         </p>
-        {correctBird.soundFileId && (
+        {correctBird.id && (
           <p className="text-xs text-center text-muted-foreground mt-1">
-            (ID: XC{correctBird.soundFileId})
+            (ID: XC{correctBird.id})
           </p>
         )}
       </div>
-      
+
       <div className="grid grid-cols-2 gap-3 mb-6">
         {options.map((bird) => (
           <Button
@@ -152,8 +152,8 @@ const QuizQuestion = ({
             disabled={answered}
           >
             <div className="w-full h-24 mb-2 bg-gray-100 dark:bg-gray-800 rounded overflow-hidden">
-              <img 
-                src={bird.image}
+              <img
+                src={bird.image_path}
                 alt={bird.name}
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -166,10 +166,10 @@ const QuizQuestion = ({
           </Button>
         ))}
       </div>
-      
-      <audio 
+
+      <audio
         ref={audioRef}
-        src={correctBird.sound} 
+        src={correctBird.sound_path}
         onEnded={handleAudioEnded}
         preload="auto"
       />

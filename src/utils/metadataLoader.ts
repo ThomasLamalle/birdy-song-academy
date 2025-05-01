@@ -22,7 +22,7 @@ interface SongMetadataItem {
 export const loadSongMetadata = async (): Promise<SongMetadataItem[]> => {
   // In a real implementation, you would fetch and parse the CSV file
   // For now, returning sample metadata that matches our birds
-  
+
   // Note: in production, you would replace this with actual CSV parsing logic
   return [
     {
@@ -97,21 +97,21 @@ export const loadSongMetadata = async (): Promise<SongMetadataItem[]> => {
 // Function to update bird objects with metadata
 export const enrichBirdsWithMetadata = async (birds: Bird[]): Promise<Bird[]> => {
   const metadata = await loadSongMetadata();
-  
+
   return birds.map(bird => {
     // Extract genus and species from scientific name
     const [genus, species] = bird.scientificName.split(' ');
-    
+
     // Find matching metadata
-    const matchingMetadata = metadata.find(item => 
-      item.genus.toLowerCase() === genus.toLowerCase() && 
+    const matchingMetadata = metadata.find(item =>
+      item.genus.toLowerCase() === genus.toLowerCase() &&
       item.species.toLowerCase() === species.toLowerCase()
     );
-    
+
     if (matchingMetadata) {
       return {
         ...bird,
-        sound: `/songs/xc${matchingMetadata.file_id}.flac`,
+        sound_path: `/songs/xc${matchingMetadata.file_id}.flac`,
         soundFileId: matchingMetadata.file_id,
         soundMetadata: {
           genus: matchingMetadata.genus,
@@ -125,7 +125,7 @@ export const enrichBirdsWithMetadata = async (birds: Bird[]): Promise<Bird[]> =>
         }
       };
     }
-    
+
     return bird;
   });
 };

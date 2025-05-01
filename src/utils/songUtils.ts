@@ -18,7 +18,6 @@ export const getSongPath = (fileId: string): string => {
     return "/sounds/placeholder.mp3";
   }
   const path = `/songs_mp3/xc${fileId}.mp3`;
-  console.log("getSongPath: Generated song path:", path);
   return path;
 };
 
@@ -44,8 +43,8 @@ export const getAllSongsForBird = (scientificName: string, metadataItems: SongMe
 };
 
 // Function to get image path for a bird
-export const getBirdImagePath = (birdName: string): string => {
-  // Convert bird name to a URL-friendly format (lowercase, replace spaces with underscores)
-  const formattedName = birdName.toLowerCase().replace(/\s+/g, '_');
-  return `/birds/${formattedName}.jpg`;
+export const getBirdImagePath = (file_id: string): string => {
+  const imagePath = `/bird_images/${file_id}/Image_1.jpg`;
+  console.log(`Got image path : ${imagePath}`)
+  return imagePath;
 };

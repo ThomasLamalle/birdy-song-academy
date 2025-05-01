@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Index from "./pages/Index";
 import QuizPage from "./pages/QuizPage";
 import LibraryPage from "./pages/LibraryPage";
-import IdentificationKeyPage from "./pages/IdentificationKeyPage";
+// import IdentificationKeyPage from "./pages/IdentificationKeyPage";
 import NotFound from "./pages/NotFound";
 import { toast } from "./hooks/use-toast";
 
@@ -54,7 +54,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/quiz" element={<QuizPage />} />
             <Route path="/library" element={<LibraryPage />} />
-            <Route path="/identification-key" element={<IdentificationKeyPage />} />
+            {/* <Route path="/identification-key" element={<IdentificationKeyPage />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

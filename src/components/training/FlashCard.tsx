@@ -30,7 +30,7 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
     } else {
       audioRef.current.play().catch(error => {
         console.error("Error playing audio:", error);
-        console.error("Audio source:", bird.sound);
+        console.error("Audio source:", bird.sound_path);
 
         // Fallback mechanism
         toast({
@@ -58,12 +58,12 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
   };
 
   const getSoundInfo = () => {
-    if (!bird.soundMetadata) return null;
+    if (!bird.sound_path) return null;
 
     return (
       <div className="text-xs text-center text-muted-foreground mt-2">
-        <p>Type: {bird.soundMetadata.type}</p>
-        {bird.soundFileId && <p>ID: XC{bird.soundFileId}</p>}
+        <p>Type: {bird.sound_path}</p>
+        {bird.id && <p>ID: XC{bird.id}</p>}
       </div>
     );
   };
@@ -100,14 +100,14 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
                   <p className="text-center text-gray-600 dark:text-gray-300 mt-4">
                     Écoutez le chant et essayez d'identifier l'oiseau
                   </p>
-                  {isSoundMode && bird.soundMetadata && getSoundInfo()}
+                  {isSoundMode && bird.sound_path && getSoundInfo()}
                 </>
               ) : (
                 <>
                   <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 mb-4 rounded-md overflow-hidden">
-                    {bird.image && (
+                    {bird.image_path && (
                       <img
-                        src={bird.image}
+                        src={bird.image_path}
                         alt="Oiseau à identifier"
                         className="w-full h-full object-cover"
                         onError={(e) => {
@@ -136,7 +136,7 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
             <div className="p-4 flex flex-col items-center h-full relative">
               <div className="w-full h-40 bg-gray-200 dark:bg-gray-700 mb-4 rounded-md overflow-hidden">
                 <img
-                  src={bird.image}
+                  src={bird.image_path}
                   alt={bird.name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -168,7 +168,7 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
                   )}
                 </Button>
               )}
-              {bird.soundMetadata && getSoundInfo()}
+              {bird.sound_path && getSoundInfo()}
               <p className="text-sm text-center text-muted-foreground mt-auto">
                 Appuyez pour retourner la carte
               </p>
@@ -185,12 +185,12 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
 
       <audio
         ref={audioRef}
-        src={bird.sound}
+        src={bird.sound_path}
         onEnded={handleAudioEnded}
         preload="auto"
         onError={(e) => {
           console.error("Audio playback error:", e);
-          console.error("Audio source:", bird.sound);
+          console.error("Audio source:", bird.sound_path);
           console.error("Audio path:", audioRef.current?.src);
         }}
       />

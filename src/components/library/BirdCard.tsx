@@ -19,7 +19,7 @@ const BirdCard = ({ bird }: BirdCardProps) => {
 
   const playSound = () => {
     if (!audioRef.current) return;
-    
+
     if (isPlaying) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
@@ -48,7 +48,7 @@ const BirdCard = ({ bird }: BirdCardProps) => {
 
   const getMasteryLevelName = () => {
     const percentage = calculateMasteryPercentage();
-    
+
     if (bird.totalGuesses < 3) return "Nouveau";
     if (percentage >= 90) return "Maître";
     if (percentage >= 70) return "Expert";
@@ -58,7 +58,7 @@ const BirdCard = ({ bird }: BirdCardProps) => {
 
   const getMasteryLevelColor = () => {
     const percentage = calculateMasteryPercentage();
-    
+
     if (bird.totalGuesses < 3) return "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200";
     if (percentage >= 90) return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200";
     if (percentage >= 70) return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
@@ -69,9 +69,9 @@ const BirdCard = ({ bird }: BirdCardProps) => {
   return (
     <Card className="w-full overflow-hidden">
       <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden">
-        <img 
-          src={bird.image} 
-          alt={bird.name} 
+        <img
+          src={bird.image_path}
+          alt={bird.name}
           className="w-full h-full object-cover"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
@@ -79,7 +79,7 @@ const BirdCard = ({ bird }: BirdCardProps) => {
           }}
         />
       </div>
-      
+
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <div>
@@ -91,28 +91,28 @@ const BirdCard = ({ bird }: BirdCardProps) => {
           </Badge>
         </div>
       </CardHeader>
-      
+
       <CardContent className="pb-3">
         {expanded ? (
           <div className="space-y-3">
             <p className="text-sm">{bird.description}</p>
-            
+
             <div>
               <h4 className="text-sm font-medium mb-1">Caractéristiques</h4>
               <div className="grid grid-cols-2 gap-2">
                 <div className="text-sm">
                   <span className="font-medium">Taille:</span> {bird.size}
                 </div>
-                <div className="text-sm">
+                {/* <div className="text-sm">
                   <span className="font-medium">Bec:</span> {bird.characteristics.beak}
                 </div>
                 <div className="text-sm col-span-2">
                   <span className="font-medium">Couleurs:</span> {bird.characteristics.color.join(', ')}
-                </div>
+                </div> */}
               </div>
             </div>
-            
-            <div>
+
+            {/* <div>
               <h4 className="text-sm font-medium mb-1">Habitat</h4>
               <div className="flex flex-wrap gap-1">
                 {bird.habitat.map((habitat) => (
@@ -121,9 +121,9 @@ const BirdCard = ({ bird }: BirdCardProps) => {
                   </Badge>
                 ))}
               </div>
-            </div>
-            
-            {bird.soundMetadata && (
+            </div> */}
+
+            {/* {bird.soundMetadata && (
               <div>
                 <h4 className="text-sm font-medium mb-1">Enregistrement</h4>
                 <div className="text-sm">
@@ -141,8 +141,8 @@ const BirdCard = ({ bird }: BirdCardProps) => {
                   </div>
                 )}
               </div>
-            )}
-            
+            )} */}
+
             {bird.totalGuesses > 0 && (
               <div>
                 <h4 className="text-sm font-medium mb-1">Statistiques</h4>
@@ -159,18 +159,18 @@ const BirdCard = ({ bird }: BirdCardProps) => {
           <p className="text-sm line-clamp-2">{bird.description}</p>
         )}
       </CardContent>
-      
+
       <CardFooter className="flex justify-between pt-0">
-        <Button 
-          variant="outline" 
-          size="sm" 
+        <Button
+          variant="outline"
+          size="sm"
           onClick={() => setExpanded(!expanded)}
           className="text-xs"
         >
           {expanded ? "Voir moins" : "Voir plus"}
         </Button>
-        <Button 
-          onClick={playSound} 
+        <Button
+          onClick={playSound}
           size="sm"
           className="text-xs bg-birdy-blue hover:bg-birdy-blue-dark flex items-center gap-1"
         >
@@ -185,10 +185,10 @@ const BirdCard = ({ bird }: BirdCardProps) => {
           )}
         </Button>
       </CardFooter>
-      
-      <audio 
+
+      <audio
         ref={audioRef}
-        src={bird.sound} 
+        src={bird.sound_path}
         onEnded={handleAudioEnded}
         preload="auto"
       />
