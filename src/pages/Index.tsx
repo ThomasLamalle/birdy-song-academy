@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
@@ -20,29 +19,31 @@ const IndexPage = () => {
   };
 
   const getNextBird = () => {
-    // Reset seen birds if all birds have been seen
-    if (seenBirds.length >= birds.length - 1) {
-      setSeenBirds([]);
-    }
-    
     // Get a random bird that hasn't been seen
-    const unseenBirds = birds.filter(bird => !seenBirds.includes(bird.id));
+    let unseenBirds = birds.filter(bird => !seenBirds.includes(bird.id));
+
+    // Reset seen birds if all birds have been seen
+    if (unseenBirds.length === 0) {
+      setSeenBirds([]);
+      unseenBirds = birds; // Reset unseen birds to all birds
+    }
+
     const randomBird = unseenBirds[Math.floor(Math.random() * unseenBirds.length)];
-    
+
     setCurrentBird(randomBird);
-    setSeenBirds([...seenBirds, randomBird.id]);
+    setSeenBirds(prevSeenBirds => [...prevSeenBirds, randomBird.id]);
   };
 
   return (
     <Layout>
-      <Header 
-        title="Birdy" 
+      <Header
+        title="Birdy"
         subtitle="Entraînez-vous à reconnaître les oiseaux"
       />
-      
+
       <ModeToggle isSoundMode={isSoundMode} onToggle={toggleMode} />
 
-      <FlashCard 
+      <FlashCard
         bird={currentBird}
         isSoundMode={isSoundMode}
         onNext={getNextBird}
