@@ -22,9 +22,14 @@ const IdentificationKey = () => {
 
   const handleSearch = () => {
     const results = birds.filter(bird => {
-      const sizeMatch = size ? bird.characteristics.size === size : true;
-      const colorMatch = color ? bird.characteristics.color.includes(color) : true;
-      const habitatMatch = habitat ? bird.habitat.includes(habitat) : true;
+      // Check if size is empty or "all_sizes", or if it matches the bird's size
+      const sizeMatch = !size || size === "all_sizes" || bird.characteristics.size === size;
+      
+      // Check if color is empty or "all_colors", or if it's included in the bird's colors
+      const colorMatch = !color || color === "all_colors" || bird.characteristics.color.includes(color);
+      
+      // Check if habitat is empty or "all_habitats", or if it's included in the bird's habitats
+      const habitatMatch = !habitat || habitat === "all_habitats" || bird.habitat.includes(habitat);
       
       return sizeMatch && colorMatch && habitatMatch;
     });
@@ -53,7 +58,7 @@ const IdentificationKey = () => {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Tailles</SelectLabel>
-                    <SelectItem value="">Toutes les tailles</SelectItem>
+                    <SelectItem value="all_sizes">Toutes les tailles</SelectItem>
                     <SelectItem value="tiny">Très petit</SelectItem>
                     <SelectItem value="small">Petit</SelectItem>
                     <SelectItem value="medium">Moyen</SelectItem>
@@ -73,7 +78,7 @@ const IdentificationKey = () => {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Couleurs</SelectLabel>
-                    <SelectItem value="">Toutes les couleurs</SelectItem>
+                    <SelectItem value="all_colors">Toutes les couleurs</SelectItem>
                     {colors.map((c) => (
                       <SelectItem key={c} value={c}>{c}</SelectItem>
                     ))}
@@ -91,7 +96,7 @@ const IdentificationKey = () => {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Habitats</SelectLabel>
-                    <SelectItem value="">Tous les habitats</SelectItem>
+                    <SelectItem value="all_habitats">Tous les habitats</SelectItem>
                     {habitats.map((h) => (
                       <SelectItem key={h} value={h}>{h}</SelectItem>
                     ))}
