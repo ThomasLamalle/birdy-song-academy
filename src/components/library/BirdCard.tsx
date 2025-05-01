@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
+import { Music, Volume2 } from 'lucide-react';
 
 interface BirdCardProps {
   bird: Bird;
@@ -122,6 +123,26 @@ const BirdCard = ({ bird }: BirdCardProps) => {
               </div>
             </div>
             
+            {bird.soundMetadata && (
+              <div>
+                <h4 className="text-sm font-medium mb-1">Enregistrement</h4>
+                <div className="text-sm">
+                  <span className="font-medium">Type:</span> {bird.soundMetadata.type}
+                </div>
+                <div className="text-sm">
+                  <span className="font-medium">Pays:</span> {bird.soundMetadata.country}
+                </div>
+                <div className="text-sm">
+                  <span className="font-medium">Contributeur:</span> {bird.soundMetadata.recordingProvider}
+                </div>
+                {bird.soundFileId && (
+                  <div className="text-sm">
+                    <span className="font-medium">ID:</span> XC{bird.soundFileId}
+                  </div>
+                )}
+              </div>
+            )}
+            
             {bird.totalGuesses > 0 && (
               <div>
                 <h4 className="text-sm font-medium mb-1">Statistiques</h4>
@@ -151,9 +172,17 @@ const BirdCard = ({ bird }: BirdCardProps) => {
         <Button 
           onClick={playSound} 
           size="sm"
-          className="text-xs bg-birdy-blue hover:bg-birdy-blue-dark"
+          className="text-xs bg-birdy-blue hover:bg-birdy-blue-dark flex items-center gap-1"
         >
-          {isPlaying ? "■ Arrêter" : "▶ Écouter"}
+          {isPlaying ? (
+            <>
+              <Volume2 className="h-3 w-3" /> Arrêter
+            </>
+          ) : (
+            <>
+              <Music className="h-3 w-3" /> Écouter
+            </>
+          )}
         </Button>
       </CardFooter>
       

@@ -1,14 +1,96 @@
-
 import { Bird } from "../types/bird";
+import { getSongPath } from "../utils/songUtils";
 
-// Sample birds data
+// Import bird song metadata - in a real app, you'd load this from a JSON file or API
+// For now, we're using a simplified version with just a few entries
+const birdSongMetadata = [
+  {
+    file_id: "101371",
+    genus: "Turdus",
+    species: "merula",
+    english_cname: "Common Blackbird",
+    who_provided_recording: "Jarek Matusiak",
+    country: "Poland",
+    latitude: 52.235,
+    longitude: 21.0724,
+    type: "song"
+  },
+  {
+    file_id: "133862",
+    genus: "Parus",
+    species: "major",
+    english_cname: "Great Tit",
+    who_provided_recording: "Jarek Matusiak",
+    country: "Poland",
+    latitude: 52.235,
+    longitude: 21.0724,
+    type: "song"
+  },
+  {
+    file_id: "110167",
+    genus: "Erithacus",
+    species: "rubecula",
+    english_cname: "European Robin",
+    who_provided_recording: "Jarek Matusiak",
+    country: "Poland",
+    latitude: 52.235,
+    longitude: 21.0724,
+    type: "song"
+  },
+  {
+    file_id: "128851",
+    genus: "Passer",
+    species: "domesticus",
+    english_cname: "House Sparrow",
+    who_provided_recording: "Jarek Matusiak",
+    country: "Poland",
+    latitude: 52.235,
+    longitude: 21.0724,
+    type: "song"
+  },
+  {
+    file_id: "102932",
+    genus: "Dendrocopos",
+    species: "major",
+    english_cname: "Great Spotted Woodpecker",
+    who_provided_recording: "Jarek Matusiak",
+    country: "Poland",
+    latitude: 52.235,
+    longitude: 21.0724,
+    type: "drumming"
+  },
+  {
+    file_id: "35068",
+    genus: "Strix",
+    species: "aluco",
+    english_cname: "Tawny Owl",
+    who_provided_recording: "Jarek Matusiak",
+    country: "Poland",
+    latitude: 52.235,
+    longitude: 21.0724,
+    type: "song"
+  }
+];
+
+// Sample birds data with updated sound paths
 export const birds: Bird[] = [
   {
     id: "1",
     name: "Merle noir",
     scientificName: "Turdus merula",
     image: "/birds/blackbird.jpg",
-    sound: "/sounds/blackbird.mp3",
+    sound: getSongPath("101371"),
+    soundFileId: "101371",
+    soundMetadata: {
+      genus: "Turdus",
+      species: "merula",
+      englishName: "Common Blackbird",
+      recordingProvider: "Jarek Matusiak",
+      country: "Poland",
+      latitude: 52.235,
+      longitude: 21.0724,
+      type: "song"
+    },
     description: "Oiseau commun au plumage noir et au bec orange chez le mâle.",
     size: "24-25 cm",
     habitat: ["Jardins", "Forêts", "Parcs urbains"],
@@ -26,7 +108,18 @@ export const birds: Bird[] = [
     name: "Mésange charbonnière",
     scientificName: "Parus major",
     image: "/birds/great_tit.jpg",
-    sound: "/sounds/great_tit.mp3",
+    sound: getSongPath("133862"),
+    soundFileId: "133862",
+    soundMetadata: {
+      genus: "Parus",
+      species: "major",
+      englishName: "Great Tit",
+      recordingProvider: "Jarek Matusiak",
+      country: "Poland",
+      latitude: 52.235,
+      longitude: 21.0724,
+      type: "song"
+    },
     description: "Petite mésange colorée avec tête noire et joues blanches.",
     size: "13-14 cm",
     habitat: ["Jardins", "Forêts de feuillus", "Parcs"],
@@ -44,7 +137,18 @@ export const birds: Bird[] = [
     name: "Rouge-gorge",
     scientificName: "Erithacus rubecula",
     image: "/birds/robin.jpg",
-    sound: "/sounds/robin.mp3",
+    sound: getSongPath("110167"),
+    soundFileId: "110167",
+    soundMetadata: {
+      genus: "Erithacus",
+      species: "rubecula",
+      englishName: "European Robin",
+      recordingProvider: "Jarek Matusiak",
+      country: "Poland",
+      latitude: 52.235,
+      longitude: 21.0724,
+      type: "song"
+    },
     description: "Petit oiseau familier avec poitrine rouge-orangée distinctive.",
     size: "12-14 cm",
     habitat: ["Jardins", "Forêts", "Haies"],
@@ -62,7 +166,18 @@ export const birds: Bird[] = [
     name: "Moineau domestique",
     scientificName: "Passer domesticus",
     image: "/birds/house_sparrow.jpg",
-    sound: "/sounds/house_sparrow.mp3",
+    sound: getSongPath("128851"),
+    soundFileId: "128851",
+    soundMetadata: {
+      genus: "Passer",
+      species: "domesticus",
+      englishName: "House Sparrow",
+      recordingProvider: "Jarek Matusiak",
+      country: "Poland",
+      latitude: 52.235,
+      longitude: 21.0724,
+      type: "song"
+    },
     description: "Petit oiseau brun très répandu dans les zones habitées.",
     size: "14-16 cm",
     habitat: ["Villes", "Villages", "Fermes"],
@@ -80,7 +195,18 @@ export const birds: Bird[] = [
     name: "Pic épeiche",
     scientificName: "Dendrocopos major",
     image: "/birds/great_spotted_woodpecker.jpg",
-    sound: "/sounds/great_spotted_woodpecker.mp3",
+    sound: getSongPath("102932"),
+    soundFileId: "102932",
+    soundMetadata: {
+      genus: "Dendrocopos",
+      species: "major",
+      englishName: "Great Spotted Woodpecker",
+      recordingProvider: "Jarek Matusiak",
+      country: "Poland",
+      latitude: 52.235,
+      longitude: 21.0724,
+      type: "drumming"
+    },
     description: "Pic noir et blanc avec du rouge sous la queue.",
     size: "20-24 cm",
     habitat: ["Forêts", "Parcs", "Jardins arborés"],
@@ -98,7 +224,18 @@ export const birds: Bird[] = [
     name: "Chouette hulotte",
     scientificName: "Strix aluco",
     image: "/birds/tawny_owl.jpg",
-    sound: "/sounds/tawny_owl.mp3",
+    sound: getSongPath("35068"),
+    soundFileId: "35068",
+    soundMetadata: {
+      genus: "Strix",
+      species: "aluco",
+      englishName: "Tawny Owl",
+      recordingProvider: "Jarek Matusiak",
+      country: "Poland",
+      latitude: 52.235,
+      longitude: 21.0724,
+      type: "song"
+    },
     description: "Chouette commune au hululement caractéristique.",
     size: "37-39 cm",
     habitat: ["Forêts", "Parcs", "Zones boisées"],

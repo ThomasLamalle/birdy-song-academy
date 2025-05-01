@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Bird } from '@/types/bird';
 import { useToast } from '@/hooks/use-toast';
+import { Music, Volume2 } from 'lucide-react';
 
 interface QuizQuestionProps {
   correctBird: Bird;
@@ -124,9 +125,9 @@ const QuizQuestion = ({
             onClick={playSound}
           >
             {isPlaying ? (
-              <span className="text-2xl">■</span>
+              <Volume2 className="h-8 w-8" />
             ) : (
-              <span className="text-2xl">▶</span>
+              <Music className="h-8 w-8" />
             )}
           </Button>
         </div>
@@ -134,6 +135,11 @@ const QuizQuestion = ({
         <p className="text-sm text-center text-muted-foreground">
           Écoutez le chant et sélectionnez l'oiseau correspondant
         </p>
+        {correctBird.soundFileId && (
+          <p className="text-xs text-center text-muted-foreground mt-1">
+            (ID: XC{correctBird.soundFileId})
+          </p>
+        )}
       </div>
       
       <div className="grid grid-cols-2 gap-3 mb-6">

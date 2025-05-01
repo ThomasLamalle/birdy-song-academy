@@ -1,8 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Bird } from '@/types/bird';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import { Music, Volume2 } from 'lucide-react';
 
 interface FlashCardProps {
   bird: Bird;
@@ -54,6 +55,17 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
     onNext();
   };
 
+  const getSoundInfo = () => {
+    if (!bird.soundMetadata) return null;
+    
+    return (
+      <div className="text-xs text-center text-muted-foreground mt-2">
+        <p>Type: {bird.soundMetadata.type}</p>
+        {bird.soundFileId && <p>ID: XC{bird.soundFileId}</p>}
+      </div>
+    );
+  };
+
   return (
     <div className="w-full max-w-sm mx-auto">
       <div className="card-flip-container h-80 w-full">
@@ -77,15 +89,16 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
                       }}
                     >
                       {isPlaying ? (
-                        <span className="text-3xl">■</span>
+                        <Volume2 className="h-10 w-10" />
                       ) : (
-                        <span className="text-3xl">▶</span>
+                        <Music className="h-10 w-10" />
                       )}
                     </Button>
                   </div>
                   <p className="text-center text-gray-600 dark:text-gray-300 mt-4">
                     Écoutez le chant et essayez d'identifier l'oiseau
                   </p>
+                  {isSoundMode && bird.soundMetadata && getSoundInfo()}
                 </>
               ) : (
                 <>
@@ -136,15 +149,24 @@ const FlashCard = ({ bird, isSoundMode, onNext }: FlashCardProps) => {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="mb-2"
+                  className="mb-2 flex items-center gap-1"
                   onClick={(e) => {
                     e.stopPropagation();
                     playSound();
                   }}
                 >
-                  {isPlaying ? "Arrêter le chant" : "Écouter le chant"}
+                  {isPlaying ? (
+                    <>
+                      <Volume2 className="h-3 w-3" /> Arrêter le chant
+                    </>
+                  ) : (
+                    <>
+                      <Music className="h-3 w-3" /> Écouter le chant
+                    </>
+                  )}
                 </Button>
               )}
+              {bird.soundMetadata && getSoundInfo()}
               <p className="text-sm text-center text-muted-foreground mt-auto">
                 Appuyez pour retourner la carte
               </p>
