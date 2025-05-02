@@ -47,7 +47,6 @@ const IndexPage = () => {
         subtitle="Entraînez-vous à reconnaître les oiseaux"
       />
 
-      <ModeToggle isSoundMode={isSoundMode} onToggle={toggleMode} />
 
       <FlashCard
         bird={shuffledBirds[currentIndex]}
@@ -56,13 +55,8 @@ const IndexPage = () => {
         onPrevious={goToPrevious}
       />
 
-      <div className="flex justify-center mt-4">
-        <button
-          onClick={shuffleBirds}
-          className="flex items-center justify-center text-primary hover:text-blue-600"
-        >
-          <Shuffle className="w-6 h-6" />
-        </button>
+      <div className="flex justify-center items-center mt-4">
+        <ModeToggle isSoundMode={isSoundMode} onToggle={toggleMode} shuffleBirds={shuffleBirds} />
       </div>
     </Layout>
   );
