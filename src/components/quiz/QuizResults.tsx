@@ -56,7 +56,7 @@ const QuizResults = ({ score, totalQuestions, onRestart }: QuizResultsProps) => 
           Recommencer le quiz
         </Button>
         <Button variant="outline" onClick={() => window.location.href = '/'}>
-          Retourner à l'Flash Cards
+          Retourner au Cartes
         </Button>
       </div>
     </div>
