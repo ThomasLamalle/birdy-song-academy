@@ -9,8 +9,8 @@ const NavBar = () => {
   const isMobile = useIsMobile();
 
   return (
-    <nav className="fixed top-0 left-0 bottom-0 bg-white dark:bg-slate-800 shadow-lg border-r border-gray-200 dark:border-gray-700 w-16">
-      <div className="flex flex-col justify-around items-center h-full">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-800 shadow-lg border-t border-gray-200 dark:border-gray-700 h-16">
+      <div className="flex justify-around items-center h-full">
         <NavButton
           to="/"
           icon={<IdCard className="h-5 w-5" />}

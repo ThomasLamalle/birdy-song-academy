@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
-      <main className={`flex-1 container mx-auto pb-20 ${isMobile ? 'max-w-[calc(100%-4rem)] px-2 ml-16' : 'max-w-[calc(100%-4rem)] px-4 ml-16'}`}>
+      <main className={`flex-1 container mx-auto pb-20 ${isMobile ? 'max-w-full px-2' : 'max-w-md px-4'}`}>
         {children}
       </main>
     </div>
