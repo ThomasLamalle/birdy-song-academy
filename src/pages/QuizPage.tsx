@@ -18,7 +18,7 @@ const QuizPage = () => {
     correctBird: typeof birds[0],
     options: typeof birds
   }>>([]);
-  
+
   useEffect(() => {
     prepareQuiz();
   }, []);
@@ -26,13 +26,13 @@ const QuizPage = () => {
   const prepareQuiz = () => {
     // Get random birds for the quiz
     const selectedBirds = getRandomBirds(QUIZ_LENGTH);
-    
+
     // Create quiz questions with options
     const newQuizBirds = selectedBirds.map(bird => ({
       correctBird: bird,
       options: getQuizBirds(bird, OPTIONS_COUNT)
     }));
-    
+
     setQuizBirds(newQuizBirds);
     setCurrentQuestion(0);
     setScore(0);
@@ -47,7 +47,7 @@ const QuizPage = () => {
   const handleAnswer = (correct: boolean) => {
     if (correct) {
       setScore(score + 1);
-      
+
       // Update bird stats
       const currentBird = quizBirds[currentQuestion].correctBird;
       currentBird.correctGuesses += 1;
@@ -57,7 +57,7 @@ const QuizPage = () => {
       const currentBird = quizBirds[currentQuestion].correctBird;
       currentBird.totalGuesses += 1;
     }
-    
+
     if (currentQuestion < QUIZ_LENGTH - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
@@ -72,8 +72,8 @@ const QuizPage = () => {
   if (!quizStarted) {
     return (
       <Layout>
-        <Header 
-          title="Évaluation" 
+        <Header
+          title="Quiz"
           subtitle="Testez vos connaissances sur les chants d'oiseaux"
         />
         <div className="flex flex-col items-center justify-center py-8">
@@ -82,7 +82,7 @@ const QuizPage = () => {
             <p className="text-muted-foreground mb-6">
               Ce quiz comporte {QUIZ_LENGTH} questions. Écoutez le chant de l'oiseau et sélectionnez la bonne réponse parmi les {OPTIONS_COUNT} choix.
             </p>
-            <button 
+            <button
               onClick={startQuiz}
               className="bg-birdy-green text-white px-6 py-3 rounded-md font-medium hover:bg-birdy-green-dark transition-colors"
             >
@@ -97,11 +97,11 @@ const QuizPage = () => {
   if (quizFinished) {
     return (
       <Layout>
-        <Header 
-          title="Résultats" 
+        <Header
+          title="Résultats"
           subtitle="Votre score pour ce quiz"
         />
-        <QuizResults 
+        <QuizResults
           score={score}
           totalQuestions={QUIZ_LENGTH}
           onRestart={restartQuiz}
@@ -114,11 +114,11 @@ const QuizPage = () => {
 
   return (
     <Layout>
-      <Header 
-        title="Évaluation" 
+      <Header
+        title="Quiz"
         subtitle="Identifiez l'oiseau par son chant"
       />
-      <QuizQuestion 
+      <QuizQuestion
         correctBird={currentQuizQuestion.correctBird}
         options={currentQuizQuestion.options}
         onAnswer={handleAnswer}
