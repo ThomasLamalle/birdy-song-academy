@@ -6,7 +6,7 @@ import birdSongMetadata from '../../birdsong_metadata.json';
 
 // Replace the hardcoded birds array with dynamic loading from the JSON file
 export const birds: Bird[] = Object.values(birdSongMetadata).map((metadata: any) => ({
-  id: metadata.id,
+  id: metadata.file_id,
   name: metadata.french_cname,
   scientificName: `${metadata.genus} ${metadata.species}`,
   image_path: getBirdImagePath(metadata.english_cname),
@@ -40,8 +40,16 @@ export const getRandomBirds = (count: number) => {
 // Get random birds for quiz with one correct answer
 export const getQuizBirds = (correctBird: Bird, optionsCount: number) => {
   const otherBirds = birds.filter(bird => bird.id !== correctBird.id);
+  console.log('Filtered otherBirds:', otherBirds); // Debugging log
+  if (otherBirds.length === 0) {
+    console.warn('No other birds available for quiz options.');
+  }
+  console.log('Correct bird ID:', correctBird.id);
+  console.log('All bird IDs:', birds.map(bird => bird.id));
+  console.log('All birds:', birds);
+  console.log('Correct bird:', correctBird);
   const shuffled = [...otherBirds].sort(() => 0.5 - Math.random());
-  const options = shuffled.slice(0, optionsCount - 1);
+  const options = shuffled.slice(0, Math.max(0, optionsCount - 1)); // Ensure at least one option
   options.push(correctBird);
   return options.sort(() => 0.5 - Math.random());
 };
