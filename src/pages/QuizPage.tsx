@@ -6,7 +6,7 @@ import QuizQuestion from '@/components/quiz/QuizQuestion';
 import QuizResults from '@/components/quiz/QuizResults';
 import { birds, getRandomBirds, getQuizBirds } from '@/data/birds';
 
-const QUIZ_LENGTH = 10;
+const QUIZ_LENGTH = 5;
 const OPTIONS_COUNT = 4;
 
 const QuizPage = () => {
