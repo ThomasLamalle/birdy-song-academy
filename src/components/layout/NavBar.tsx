@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Bird, Book, Music, Search } from 'lucide-react';
+import { Bird, Book, IdCard, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -14,7 +14,7 @@ const NavBar = () => {
       <div className="flex justify-around items-center h-16">
         <NavButton
           to="/"
-          icon={<Music className="h-5 w-5" />}
+          icon={<IdCard className="h-5 w-5" />}
           label="Flash Cards"
           active={location.pathname === '/'}
           isMobile={isMobile}
