@@ -2,29 +2,29 @@ import { Bird } from "../types/bird";
 import { getBirdImagePath, getSongPath } from "../utils/songUtils";
 
 // Load bird song metadata from the JSON file (browser-compatible)
-import birdSongMetadata from '../../birdsong_metadata.json';
+import dataset from '../../dataset.json';
 
 // Replace the hardcoded birds array with dynamic loading from the JSON file
-export const birds: Bird[] = Object.values(birdSongMetadata).map((metadata: any) => ({
-  id: metadata.file_id,
-  name: metadata.french_cname,
-  scientificName: `${metadata.genus} ${metadata.species}`,
-  image_path: getBirdImagePath(metadata.english_cname),
-  sound_path: getSongPath(metadata.file_id),
+export const birds: Bird[] = Object.values(dataset).map((data: any) => ({
+  id: data.english_cname,
+  name: data.french_cname,
+  scientificName: `${data.genus} ${data.species}`,
+  image_path: getBirdImagePath(data.english_cname),
+  sound_path: getSongPath(data.sounds[0].file_id),
   soundMetadata: {
-    recordingProvider: metadata.recordingProvider,
-    country: metadata.country,
-    latitude: metadata.latitude,
-    longitude: metadata.longitude,
-    type: metadata.type,
+    recordingProvider: data.sounds[0].recordingProvider,
+    country: data.sounds[0].country,
+    latitude: data.sounds[0].latitude,
+    longitude: data.sounds[0].longitude,
+    type: data.sounds[0].type,
   },
   description: "No description for now",
   size: "Not available",
-  level: metadata.level || 0,
-  correctGuesses: metadata.correctGuesses || 0,
-  totalGuesses: metadata.totalGuesses || 0,
-  habitat: metadata.habitat || "Unknown habitat",
-  characteristics: metadata.characteristics || "No characteristics available"
+  level: data.level || 0,
+  correctGuesses: data.correctGuesses || 0,
+  totalGuesses: data.totalGuesses || 0,
+  habitat: data.habitat || "Unknown habitat",
+  characteristics: data.characteristics || "No characteristics available"
 }));
 
 // Placeholder image and sound
