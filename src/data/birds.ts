@@ -7,10 +7,17 @@ import birdSongMetadata from '../../birdsong_metadata.json';
 // Replace the hardcoded birds array with dynamic loading from the JSON file
 export const birds: Bird[] = Object.values(birdSongMetadata).map((metadata: any) => ({
   id: metadata.id,
-  name: metadata.english_cname,
+  name: metadata.french_cname,
   scientificName: `${metadata.genus} ${metadata.species}`,
   image_path: getBirdImagePath(metadata.english_cname),
   sound_path: getSongPath(metadata.file_id),
+  soundMetadata: {
+    recordingProvider: metadata.recordingProvider,
+    country: metadata.country,
+    latitude: metadata.latitude,
+    longitude: metadata.longitude,
+    type: metadata.type,
+  },
   description: "No description for now",
   size: "Not available",
   level: metadata.level || 0,

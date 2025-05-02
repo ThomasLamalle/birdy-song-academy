@@ -5,17 +5,13 @@ export interface Bird {
   scientificName: string;
   image_path: string;
   sound_path: string;
-  // soundFileId?: string;  // The XC file ID for the song
-  // soundMetadata?: {
-  //   genus: string;
-  //   species: string;
-  //   englishName: string;
-  //   recordingProvider: string;
-  //   country: string;
-  //   latitude: number;
-  //   longitude: number;
-  //   type: string;
-  // };
+  soundMetadata: {
+    recordingProvider: string;
+    country: string;
+    latitude: number;
+    longitude: number;
+    type: string;
+  };
   description: string;
   size: string;
   habitat: string[];
