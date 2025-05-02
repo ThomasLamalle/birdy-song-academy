@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Bird, Book, IdCard, Search } from 'lucide-react';
@@ -10,8 +9,8 @@ const NavBar = () => {
   const isMobile = useIsMobile();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-800 shadow-lg border-t border-gray-200 dark:border-gray-700">
-      <div className="flex justify-around items-center h-16">
+    <nav className="fixed top-0 left-0 bottom-0 bg-white dark:bg-slate-800 shadow-lg border-r border-gray-200 dark:border-gray-700 w-24">
+      <div className="flex flex-col justify-around items-center h-full">
         <NavButton
           to="/"
           icon={<IdCard className="h-5 w-5" />}
@@ -31,13 +30,6 @@ const NavBar = () => {
           icon={<Bird className="h-5 w-5" />}
           label="BirdyDex"
           active={location.pathname === '/library'}
-          isMobile={isMobile}
-        />
-        <NavButton
-          to="/identification-key"
-          icon={<Book className="h-5 w-5" />}
-          label="Clef"
-          active={location.pathname === '/identification-key'}
           isMobile={isMobile}
         />
       </div>
