@@ -71,11 +71,11 @@ const FlashCard = ({ bird, isSoundMode, onNext, onPrevious }: FlashCardProps) =>
   };
 
   const getSoundInfo = () => {
-    if (!bird.sound_path) return null;
+    if (!bird.soundMetadata) return null;
 
     return (
       <div className="text-xs text-center text-muted-foreground mt-2">
-        <p>Type: {bird.sound_path}</p>
+        <p>Type: {bird.soundMetadata.type}</p>
         {bird.id && <p>ID: XC{bird.id}</p>}
       </div>
     );
