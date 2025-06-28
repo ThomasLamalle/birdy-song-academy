@@ -25,10 +25,7 @@ export const birds: Bird[] = Object.values(dataset).map((data: any) => ({
   correctGuesses: data.correctGuesses || 0,
   totalGuesses: data.totalGuesses || 0,
   habitat: data.habitat || "Unknown habitat",
-  characteristics: data.characteristics || "No characteristics available"
-    level: 0,
-  correctGuesses: 0,
-  totalGuesses: 0,
+  characteristics: data.characteristics || "No characteristics available",
   experience: 0,
   experienceToNextLevel: 100
 }));
