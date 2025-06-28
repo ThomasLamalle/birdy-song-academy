@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
 import FlashCard from '@/components/training/FlashCard';
@@ -11,6 +12,7 @@ const IndexPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [shuffledBirds, setShuffledBirds] = useState([...birds]);
   const [seenIndices, setSeenIndices] = useState<number[]>([0]);
+  const flashCardRef = useRef<{ resetToFront: () => void }>(null);
 
   useEffect(() => {
     // Mélanger les oiseaux au chargement initial
@@ -28,9 +30,18 @@ const IndexPage = () => {
     const shuffled = [...birds].sort(() => Math.random() - 0.5);
     setShuffledBirds(shuffled);
     setCurrentIndex(0);
+    // Reset card to front when shuffling
+    if (flashCardRef.current) {
+      flashCardRef.current.resetToFront();
+    }
   };
 
   const goToNext = () => {
+    // Reset card to front before changing bird
+    if (flashCardRef.current) {
+      flashCardRef.current.resetToFront();
+    }
+
     // Si on a déjà vu tous les oiseaux, recommencer avec un nouveau mélange
     if (seenIndices.length >= birds.length) {
       const shuffled = [...birds].sort(() => Math.random() - 0.5);
@@ -51,6 +62,11 @@ const IndexPage = () => {
   };
 
   const goToPrevious = () => {
+    // Reset card to front before changing bird
+    if (flashCardRef.current) {
+      flashCardRef.current.resetToFront();
+    }
+
     // Si nous sommes au début ou s'il n'y a qu'un seul oiseau vu, ne rien faire
     if (seenIndices.length <= 1) return;
 
@@ -71,6 +87,7 @@ const IndexPage = () => {
       />
 
       <FlashCard
+        ref={flashCardRef}
         bird={shuffledBirds[currentIndex]}
         isSoundMode={isSoundMode}
         onNext={goToNext}

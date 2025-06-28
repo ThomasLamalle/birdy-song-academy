@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import { Bird } from '@/types/bird';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
@@ -15,13 +15,23 @@ interface FlashCardProps {
   onPrevious: () => void;
 }
 
-const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: FlashCardProps) => {
+export interface FlashCardRef {
+  resetToFront: () => void;
+}
+
+const FlashCard = forwardRef<FlashCardRef, FlashCardProps>(({ bird: initialBird, isSoundMode, onNext, onPrevious }, ref) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
   const isMobile = useIsMobile();
   const { bird, handleCorrectAnswer, handleIncorrectAnswer, hasGainedExperience } = useBirdExperience(initialBird);
+
+  useImperativeHandle(ref, () => ({
+    resetToFront: () => {
+      setIsFlipped(false);
+    }
+  }));
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -60,8 +70,6 @@ const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: Flash
       audioRef.current.currentTime = 0;
       setIsPlaying(false);
     }
-    // Reset to front side immediately before navigation
-    setIsFlipped(false);
     onNext();
   };
 
@@ -71,8 +79,6 @@ const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: Flash
       audioRef.current.currentTime = 0;
       setIsPlaying(false);
     }
-    // Reset to front side immediately before navigation
-    setIsFlipped(false);
     onPrevious();
   };
 
@@ -297,6 +303,8 @@ const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: Flash
       />
     </div>
   );
-};
+});
+
+FlashCard.displayName = "FlashCard";
 
 export default FlashCard;
