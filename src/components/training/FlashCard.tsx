@@ -1,5 +1,4 @@
-
-import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, useRef, forwardRef, useImperativeHandle, useEffect } from 'react';
 import { Bird } from '@/types/bird';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
@@ -26,6 +25,11 @@ const FlashCard = forwardRef<FlashCardRef, FlashCardProps>(({ bird: initialBird,
   const { toast } = useToast();
   const isMobile = useIsMobile();
   const { bird, handleCorrectAnswer, handleIncorrectAnswer, hasGainedExperience } = useBirdExperience(initialBird);
+
+  // Reset to front when bird changes
+  useEffect(() => {
+    setIsFlipped(false);
+  }, [initialBird.id]);
 
   useImperativeHandle(ref, () => ({
     resetToFront: () => {
