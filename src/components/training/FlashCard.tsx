@@ -1,9 +1,12 @@
+
 import React, { useState, useRef } from 'react';
 import { Bird } from '@/types/bird';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { Music, Volume2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Music, Volume2, ChevronLeft, ChevronRight, Check, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useBirdExperience } from '@/hooks/useBirdExperience';
+import ExperienceBar from './ExperienceBar';
 
 interface FlashCardProps {
   bird: Bird;
@@ -12,12 +15,13 @@ interface FlashCardProps {
   onPrevious: () => void;
 }
 
-const FlashCard = ({ bird, isSoundMode, onNext, onPrevious }: FlashCardProps) => {
+const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: FlashCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
   const isMobile = useIsMobile();
+  const { bird, handleCorrectAnswer, handleIncorrectAnswer, hasGainedExperience } = useBirdExperience(initialBird);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -70,6 +74,14 @@ const FlashCard = ({ bird, isSoundMode, onNext, onPrevious }: FlashCardProps) =>
     onPrevious();
   };
 
+  const onCorrect = () => {
+    handleCorrectAnswer();
+  };
+
+  const onIncorrect = () => {
+    handleIncorrectAnswer();
+  };
+
   const getSoundInfo = () => {
     if (!bird.soundMetadata) return null;
 
@@ -97,7 +109,7 @@ const FlashCard = ({ bird, isSoundMode, onNext, onPrevious }: FlashCardProps) =>
         </Button>
 
         {/* Card Container - Expanded size */}
-        <div className={`card-flip-container ${isMobile ? 'h-[450px]' : 'h-80'} w-full max-w-md mx-auto`}>
+        <div className={`card-flip-container ${isMobile ? 'h-[500px]' : 'h-96'} w-full max-w-md mx-auto`}>
           <div className={`card-flip ${isFlipped ? 'flipped' : ''}`}>
             {/* Front of card */}
             <div
@@ -160,8 +172,17 @@ const FlashCard = ({ bird, isSoundMode, onNext, onPrevious }: FlashCardProps) =>
               className="card-back rounded-xl shadow-lg bg-white dark:bg-slate-800 overflow-hidden border border-muted"
               onClick={handleFlip}
             >
-              <div className="p-4 flex flex-col items-center h-full relative">
-                <div className={`w-full ${isMobile ? 'h-60' : 'h-40'} bg-gray-200 dark:bg-gray-700 mb-4 rounded-md overflow-hidden`}>
+              <div className="p-4 flex flex-col h-full relative">
+                {/* Experience Bar */}
+                <div className="mb-3">
+                  <ExperienceBar
+                    level={bird.level}
+                    experience={bird.experience}
+                    experienceToNextLevel={bird.experienceToNextLevel}
+                  />
+                </div>
+
+                <div className={`w-full ${isMobile ? 'h-48' : 'h-32'} bg-gray-200 dark:bg-gray-700 mb-3 rounded-md overflow-hidden`}>
                   <img
                     src={bird.image_path}
                     alt={bird.name}
@@ -174,6 +195,7 @@ const FlashCard = ({ bird, isSoundMode, onNext, onPrevious }: FlashCardProps) =>
                 </div>
                 <h3 className="text-xl font-bold mb-1">{bird.name}</h3>
                 <p className="text-sm italic text-gray-500 dark:text-gray-400 mb-2">{bird.scientificName}</p>
+
                 {!isSoundMode && (
                   <Button
                     variant="outline"
@@ -196,7 +218,50 @@ const FlashCard = ({ bird, isSoundMode, onNext, onPrevious }: FlashCardProps) =>
                     )}
                   </Button>
                 )}
+
                 {bird.sound_path && getSoundInfo()}
+
+                {/* Answer buttons */}
+                <div className="flex gap-2 mt-3">
+                  <Button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onCorrect();
+                    }}
+                    className={`flex-1 text-white ${hasGainedExperience
+                      ? 'bg-gray-400 hover:bg-gray-400 cursor-not-allowed'
+                      : 'bg-green-500 hover:bg-green-600'
+                    }`}
+                    size="sm"
+                    disabled={hasGainedExperience}
+                  >
+                    <Check className="h-4 w-4 mr-1" />
+                    Correct
+                  </Button>
+                  <Button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onIncorrect();
+                    }}
+                    variant="outline"
+                    className={`flex-1 ${hasGainedExperience
+                      ? 'border-gray-400 text-gray-400 hover:bg-gray-50 cursor-not-allowed'
+                      : 'border-red-500 text-red-500 hover:bg-red-50'
+                    }`}
+                    size="sm"
+                    disabled={hasGainedExperience}
+                  >
+                    <X className="h-4 w-4 mr-1" />
+                    Incorrect
+                  </Button>
+                </div>
+
+                {hasGainedExperience && (
+                  <p className="text-xs text-center text-muted-foreground mt-2">
+                    Passez à la carte suivante pour continuer à gagner de l'XP
+                  </p>
+                )}
+
                 <p className="text-sm text-center text-muted-foreground mt-auto">
                   Appuyez pour retourner la carte
                 </p>

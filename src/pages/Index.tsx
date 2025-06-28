@@ -10,12 +10,14 @@ const IndexPage = () => {
   const [isSoundMode, setIsSoundMode] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [shuffledBirds, setShuffledBirds] = useState([...birds]);
+  const [seenIndices, setSeenIndices] = useState<number[]>([0]);
 
   useEffect(() => {
     // Mélanger les oiseaux au chargement initial
     const shuffled = [...birds].sort(() => Math.random() - 0.5);
     setShuffledBirds(shuffled);
     setCurrentIndex(0);
+    setSeenIndices([0]);
   }, []);
 
   const toggleMode = () => {
@@ -29,15 +31,36 @@ const IndexPage = () => {
   };
 
   const goToNext = () => {
-    // Passer à l'oiseau suivant, ou revenir au début si nous sommes à la fin
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % shuffledBirds.length);
+    // Si on a déjà vu tous les oiseaux, recommencer avec un nouveau mélange
+    if (seenIndices.length >= birds.length) {
+      const shuffled = [...birds].sort(() => Math.random() - 0.5);
+      setShuffledBirds(shuffled);
+      setCurrentIndex(0);
+      setSeenIndices([0]);
+      return;
+    }
+
+    // Trouver un index d'oiseau qui n'a pas encore été vu
+    let nextIndex;
+    do {
+      nextIndex = Math.floor(Math.random() * birds.length);
+    } while (seenIndices.includes(nextIndex));
+
+    setCurrentIndex(nextIndex);
+    setSeenIndices([...seenIndices, nextIndex]);
   };
 
   const goToPrevious = () => {
-    // Passer à l'oiseau précédent, ou aller à la fin si nous sommes au début
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? shuffledBirds.length - 1 : prevIndex - 1
-    );
+    // Si nous sommes au début ou s'il n'y a qu'un seul oiseau vu, ne rien faire
+    if (seenIndices.length <= 1) return;
+
+    // Revenir à l'oiseau précédent
+    const previousIndices = [...seenIndices];
+    previousIndices.pop(); // Enlever l'index actuel
+    const prevIndex = previousIndices[previousIndices.length - 1]; // Prendre le dernier index restant
+
+    setCurrentIndex(prevIndex);
+    setSeenIndices(previousIndices);
   };
 
   return (
@@ -46,7 +69,6 @@ const IndexPage = () => {
         title="Birdy"
         subtitle="Entraînez-vous à reconnaître les oiseaux"
       />
-
 
       <FlashCard
         bird={shuffledBirds[currentIndex]}

@@ -1,3 +1,4 @@
+
 import { Bird } from "../types/bird";
 import { getBirdImagePath, getSongPath } from "../utils/songUtils";
 
@@ -25,6 +26,11 @@ export const birds: Bird[] = Object.values(dataset).map((data: any) => ({
   totalGuesses: data.totalGuesses || 0,
   habitat: data.habitat || "Unknown habitat",
   characteristics: data.characteristics || "No characteristics available"
+    level: 0,
+  correctGuesses: 0,
+  totalGuesses: 0,
+  experience: 0,
+  experienceToNextLevel: 100
 }));
 
 // Placeholder image and sound
