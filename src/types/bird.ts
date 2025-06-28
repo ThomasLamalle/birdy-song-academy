@@ -27,4 +27,6 @@ export interface Bird {
   level: number; // Mastery level for the user
   correctGuesses: number;
   totalGuesses: number;
+  experience: number; // New experience points
+  experienceToNextLevel: number; // Experience needed for next level
 }

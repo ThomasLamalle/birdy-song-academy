@@ -1,3 +1,4 @@
+
 import { Bird } from "../types/bird";
 import { getSongPath } from "../utils/songUtils";
 
@@ -72,7 +73,7 @@ const birdSongMetadata = [
   }
 ];
 
-// Sample birds data with updated sound paths
+// Sample birds data with updated sound paths and experience system
 export const birds: Bird[] = [
   {
     id: "1",
@@ -101,7 +102,9 @@ export const birds: Bird[] = [
     },
     level: 0,
     correctGuesses: 0,
-    totalGuesses: 0
+    totalGuesses: 0,
+    experience: 0,
+    experienceToNextLevel: 100
   },
   {
     id: "2",
@@ -130,7 +133,9 @@ export const birds: Bird[] = [
     },
     level: 0,
     correctGuesses: 0,
-    totalGuesses: 0
+    totalGuesses: 0,
+    experience: 0,
+    experienceToNextLevel: 100
   },
   {
     id: "3",
@@ -159,7 +164,9 @@ export const birds: Bird[] = [
     },
     level: 0,
     correctGuesses: 0,
-    totalGuesses: 0
+    totalGuesses: 0,
+    experience: 0,
+    experienceToNextLevel: 100
   },
   {
     id: "4",
@@ -188,7 +195,9 @@ export const birds: Bird[] = [
     },
     level: 0,
     correctGuesses: 0,
-    totalGuesses: 0
+    totalGuesses: 0,
+    experience: 0,
+    experienceToNextLevel: 100
   },
   {
     id: "5",
@@ -217,7 +226,9 @@ export const birds: Bird[] = [
     },
     level: 0,
     correctGuesses: 0,
-    totalGuesses: 0
+    totalGuesses: 0,
+    experience: 0,
+    experienceToNextLevel: 100
   },
   {
     id: "6",
@@ -246,7 +257,9 @@ export const birds: Bird[] = [
     },
     level: 0,
     correctGuesses: 0,
-    totalGuesses: 0
+    totalGuesses: 0,
+    experience: 0,
+    experienceToNextLevel: 100
   }
 ];
 
