@@ -21,7 +21,7 @@ const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: Flash
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
   const isMobile = useIsMobile();
-  const { bird, handleCorrectAnswer, handleIncorrectAnswer } = useBirdExperience(initialBird);
+  const { bird, handleCorrectAnswer, handleIncorrectAnswer, hasGainedExperience } = useBirdExperience(initialBird);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -227,8 +227,12 @@ const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: Flash
                       e.stopPropagation();
                       onCorrect();
                     }}
-                    className="flex-1 bg-green-500 hover:bg-green-600 text-white"
+                    className={`flex-1 text-white ${hasGainedExperience 
+                      ? 'bg-gray-400 hover:bg-gray-400 cursor-not-allowed' 
+                      : 'bg-green-500 hover:bg-green-600'
+                    }`}
                     size="sm"
+                    disabled={hasGainedExperience}
                   >
                     <Check className="h-4 w-4 mr-1" />
                     Correct
@@ -239,13 +243,23 @@ const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: Flash
                       onIncorrect();
                     }}
                     variant="outline"
-                    className="flex-1 border-red-500 text-red-500 hover:bg-red-50"
+                    className={`flex-1 ${hasGainedExperience
+                      ? 'border-gray-400 text-gray-400 hover:bg-gray-50 cursor-not-allowed'
+                      : 'border-red-500 text-red-500 hover:bg-red-50'
+                    }`}
                     size="sm"
+                    disabled={hasGainedExperience}
                   >
                     <X className="h-4 w-4 mr-1" />
                     Incorrect
                   </Button>
                 </div>
+                
+                {hasGainedExperience && (
+                  <p className="text-xs text-center text-muted-foreground mt-2">
+                    Passez à la carte suivante pour continuer à gagner de l'XP
+                  </p>
+                )}
                 
                 <p className="text-sm text-center text-muted-foreground mt-auto">
                   Appuyez pour retourner la carte
