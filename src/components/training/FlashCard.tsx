@@ -60,6 +60,7 @@ const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: Flash
       audioRef.current.currentTime = 0;
       setIsPlaying(false);
     }
+    // Reset to front side immediately before navigation
     setIsFlipped(false);
     onNext();
   };
@@ -70,6 +71,7 @@ const FlashCard = ({ bird: initialBird, isSoundMode, onNext, onPrevious }: Flash
       audioRef.current.currentTime = 0;
       setIsPlaying(false);
     }
+    // Reset to front side immediately before navigation
     setIsFlipped(false);
     onPrevious();
   };
