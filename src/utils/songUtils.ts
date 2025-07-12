@@ -1,4 +1,7 @@
 
+import { SongMetadata } from "../types";
+import birdImagePaths from "../data/bird_image_paths.json";
+
 interface SongMetadata {
   file_id: string;
   genus: string;
@@ -43,7 +46,12 @@ export const getAllSongsForBird = (scientificName: string, metadataItems: SongMe
 };
 
 // Function to get image path for a bird
-export const getBirdImagePath = (file_id: string): string => {
-  const imagePath = `/bird_images_cnames/${file_id} bird/Image_1.jpg`;
-  return imagePath;
+export const getBirdImagePath = (birdCommonName: string): string => {
+  const images = (birdImagePaths as Record<string, string[]>)[birdCommonName];
+  if (images && images.length > 0) {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+  }
+  console.warn(`No images found for bird: ${birdCommonName}, returning placeholder.`);
+  return "/birds/placeholder.jpg"; // Fallback placeholder image
 };
