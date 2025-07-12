@@ -13,7 +13,7 @@ export const birds: Bird[] = Object.values(dataset).map((data: any) => ({
   image_path: getBirdImagePath(data.english_cname),
   sound_path: getSongPath(data.sound_info.file_id),
   soundMetadata: {
-    recordingProvider: data.sound_info.recordingProvider,
+    recordingProvider: data.sound_info.who_provided_recording,
     country: data.sound_info.country,
     latitude: data.sound_info.latitude,
     longitude: data.sound_info.longitude,

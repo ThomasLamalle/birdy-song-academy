@@ -117,7 +117,9 @@ const FlashCard = forwardRef<FlashCardRef, FlashCardProps>(({ bird: initialBird,
     return (
       <div className="text-xs text-center text-muted-foreground mt-2">
         <p>Type: {bird.soundMetadata.type}</p>
-        {bird.id && <p>ID: XC{bird.id}</p>}
+        {bird.soundMetadata.recordingProvider && (
+          <p>Crédit : {bird.soundMetadata.recordingProvider}</p>
+        )}
       </div>
     );
   };
