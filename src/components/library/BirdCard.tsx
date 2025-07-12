@@ -113,6 +113,16 @@ const BirdCard = ({ bird }: BirdCardProps) => {
               </div>
             )}
 
+            <div>
+              <h4 className="text-sm font-medium mb-1">Progression</h4>
+              <div className="text-sm">
+                <span className="font-medium">Niveau:</span> {bird.level}
+              </div>
+              <div className="text-sm">
+                <span className="font-medium">Expérience:</span> {bird.experience} / {bird.experienceToNextLevel}
+              </div>
+            </div>
+
             {bird.soundMetadata && (
               <div>
                 <h4 className="text-sm font-medium mb-1">Enregistrement</h4>
