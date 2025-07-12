@@ -74,7 +74,16 @@ const FlashCard = forwardRef<FlashCardRef, FlashCardProps>(({ bird: initialBird,
       audioRef.current.currentTime = 0;
       setIsPlaying(false);
     }
-    onNext();
+
+    if (isFlipped) {
+      setIsFlipped(false);
+      // Wait for the flip animation to start before calling onNext
+      setTimeout(() => {
+        onNext();
+      }, 200); // Adjust delay to match animation duration
+    } else {
+      onNext();
+    }
   };
 
   const handlePrevious = () => {
@@ -83,7 +92,15 @@ const FlashCard = forwardRef<FlashCardRef, FlashCardProps>(({ bird: initialBird,
       audioRef.current.currentTime = 0;
       setIsPlaying(false);
     }
-    onPrevious();
+
+    if (isFlipped) {
+      setIsFlipped(false);
+      setTimeout(() => {
+        onPrevious();
+      }, 200);
+    } else {
+      onPrevious();
+    }
   };
 
   const onCorrect = () => {
