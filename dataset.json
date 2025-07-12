@@ -12,7 +12,12 @@
             "type": "female, male, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "132608"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Marsh Warbler": {
         "genus": "Acrocephalus",
@@ -27,7 +32,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "82715"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Sedge Warbler": {
         "genus": "Acrocephalus",
@@ -42,7 +52,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "120664"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Reed Warbler": {
         "genus": "Acrocephalus",
@@ -57,7 +72,12 @@
             "type": "call, female, male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "124052"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Skylark": {
         "genus": "Alauda",
@@ -72,7 +92,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "123169"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Meadow Pipit": {
         "genus": "Anthus",
@@ -87,7 +112,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "138979"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Tree Pipit": {
         "genus": "Anthus",
@@ -102,7 +132,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "83705"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Dunlin": {
         "genus": "Calidris",
@@ -117,7 +152,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "83894"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Nightjar": {
         "genus": "Caprimulgus",
@@ -132,7 +172,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "156388"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Goldfinch": {
         "genus": "Carduelis",
@@ -147,7 +192,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "133880"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Treecreeper": {
         "genus": "Certhia",
@@ -162,7 +212,12 @@
             "type": "song, flight  and contact calls",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "70129"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Greenfinch": {
         "genus": "Chloris",
@@ -177,7 +232,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "28961"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Black-headed Gull": {
         "genus": "Chroicocephalus",
@@ -192,7 +252,12 @@
             "type": "alarm call, call, flight call, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "129576"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Western Jackdaw": {
         "genus": "Coloeus",
@@ -207,7 +272,12 @@
             "type": "call, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "156262"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Rock Dove": {
         "genus": "Columba",
@@ -222,7 +292,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "92264"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Stock Dove": {
         "genus": "Columba",
@@ -237,7 +312,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "89994"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Wood Pigeon": {
         "genus": "Columba",
@@ -252,7 +332,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "130993"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Northern Raven": {
         "genus": "Corvus",
@@ -267,7 +352,12 @@
             "type": "Call and 'song'",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "64735"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Carrion Crow": {
         "genus": "Corvus",
@@ -282,7 +372,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "96133"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Rook": {
         "genus": "Corvus",
@@ -297,7 +392,12 @@
             "type": "call, flight call, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "143002"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Cuckoo": {
         "genus": "Cuculus",
@@ -312,7 +412,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "33392"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Blue Tit": {
         "genus": "Cyanistes",
@@ -327,7 +432,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "42178"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common House Martin": {
         "genus": "Delichon",
@@ -342,7 +452,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "148465"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Black Woodpecker": {
         "genus": "Dryocopus",
@@ -357,7 +472,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "130426"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Corn Bunting": {
         "genus": "Emberiza",
@@ -372,7 +492,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "123168"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Yellowhammer": {
         "genus": "Emberiza",
@@ -387,7 +512,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "102106"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Reed Bunting": {
         "genus": "Emberiza",
@@ -402,7 +532,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "102048"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Robin": {
         "genus": "Erithacus",
@@ -417,7 +552,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "70124"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Chaffinch": {
         "genus": "Fringilla",
@@ -432,7 +572,12 @@
             "type": "'plastic' song/subsong",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "42803"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Snipe": {
         "genus": "Gallinago",
@@ -447,7 +592,12 @@
             "type": "call, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "27080"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Moorhen": {
         "genus": "Gallinula",
@@ -462,7 +612,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "26789"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Jay": {
         "genus": "Garrulus",
@@ -477,7 +632,12 @@
             "type": "imitation, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "127136"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Red-throated Loon": {
         "genus": "Gavia",
@@ -492,7 +652,12 @@
             "type": "territorial call and song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "58571"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Oystercatcher": {
         "genus": "Haematopus",
@@ -507,7 +672,12 @@
             "type": "song 4 birds in flight",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "53817"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Barn Swallow": {
         "genus": "Hirundo",
@@ -522,7 +692,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "157322"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Wryneck": {
         "genus": "Jynx",
@@ -537,7 +712,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "108002"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Willow Ptarmigan": {
         "genus": "Lagopus",
@@ -552,7 +732,12 @@
             "type": "Display, call, lekking, male, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "130283"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Herring Gull": {
         "genus": "Larus",
@@ -567,7 +752,12 @@
             "type": "call, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "126481"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Linnet": {
         "genus": "Linaria",
@@ -582,7 +772,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "102060"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "River Warbler": {
         "genus": "Locustella",
@@ -597,7 +792,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "83760"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Red Crossbill": {
         "genus": "Loxia",
@@ -612,7 +812,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "94211"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Nightingale": {
         "genus": "Luscinia",
@@ -627,7 +832,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "123808"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Bee-eater": {
         "genus": "Merops",
@@ -642,7 +852,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "141026"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "African Pied Wagtail": {
         "genus": "Motacilla",
@@ -657,7 +872,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "118441"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Western Yellow Wagtail": {
         "genus": "Motacilla",
@@ -672,7 +892,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "69792"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Spotted Flycatcher": {
         "genus": "Muscicapa",
@@ -687,7 +912,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "103145"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Golden Oriole": {
         "genus": "Oriolus",
@@ -702,7 +932,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "27152"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Great Tit": {
         "genus": "Parus",
@@ -717,7 +952,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "122555"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "House Sparrow": {
         "genus": "Passer",
@@ -732,7 +972,12 @@
             "type": "call, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "134291"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Tree Sparrow": {
         "genus": "Passer",
@@ -747,7 +992,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "143465"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Grey Partridge": {
         "genus": "Perdix",
@@ -762,7 +1012,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "46209"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Coal Tit": {
         "genus": "Periparus",
@@ -777,7 +1032,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "95058"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Pheasant": {
         "genus": "Phasianus",
@@ -792,7 +1052,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "153129"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Redstart": {
         "genus": "Phoenicurus",
@@ -807,7 +1072,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "76760"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Chiffchaff": {
         "genus": "Phylloscopus",
@@ -822,7 +1092,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "153833"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Wood Warbler": {
         "genus": "Phylloscopus",
@@ -837,7 +1112,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "101934"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Willow Warbler": {
         "genus": "Phylloscopus",
@@ -852,7 +1132,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "121601"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Magpie": {
         "genus": "Pica",
@@ -867,7 +1152,12 @@
             "type": "call, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "121016"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Green Woodpecker": {
         "genus": "Picus",
@@ -882,7 +1172,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "99072"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Golden Plover": {
         "genus": "Pluvialis",
@@ -897,7 +1192,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "42344"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Willow Tit": {
         "genus": "Poecile",
@@ -912,7 +1212,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "91185"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Marsh Tit": {
         "genus": "Poecile",
@@ -927,7 +1232,12 @@
             "type": "song from tree top",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "46032"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Dunnock": {
         "genus": "Prunella",
@@ -942,7 +1252,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "145537"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Bullfinch": {
         "genus": "Pyrrhula",
@@ -957,7 +1272,12 @@
             "type": "call, male, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "113905"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Goldcrest": {
         "genus": "Regulus",
@@ -972,7 +1292,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "49540"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Nuthatch": {
         "genus": "Sitta",
@@ -987,7 +1312,12 @@
             "type": "Call Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "99937"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Collared Dove": {
         "genus": "Streptopelia",
@@ -1002,7 +1332,12 @@
             "type": "male, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "128851"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "European Turtle Dove": {
         "genus": "Streptopelia",
@@ -1017,7 +1352,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "40186"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Tawny Owl": {
         "genus": "Strix",
@@ -1032,7 +1372,12 @@
             "type": "call, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "64728"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Starling": {
         "genus": "Sturnus",
@@ -1047,7 +1392,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "101936"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Blackcap": {
         "genus": "Sylvia",
@@ -1062,7 +1412,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "94964"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Garden Warbler": {
         "genus": "Sylvia",
@@ -1077,7 +1432,12 @@
             "type": "Song and subsong",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "102932"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Whitethroat": {
         "genus": "Sylvia",
@@ -1092,7 +1452,12 @@
             "type": "female, song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "135521"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Lesser Whitethroat": {
         "genus": "Sylvia",
@@ -1107,7 +1472,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "101932"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Wood Sandpiper": {
         "genus": "Tringa",
@@ -1122,7 +1492,12 @@
             "type": "call, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "41816"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Redshank": {
         "genus": "Tringa",
@@ -1137,7 +1512,12 @@
             "type": "call, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "83912"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Eurasian Wren": {
         "genus": "Troglodytes",
@@ -1152,7 +1532,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "133872"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Redwing": {
         "genus": "Turdus",
@@ -1167,7 +1552,12 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "121168"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Common Blackbird": {
         "genus": "Turdus",
@@ -1182,7 +1572,12 @@
             "type": "call, flight call, male, song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
             "file_id": "127996"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Song Thrush": {
         "genus": "Turdus",
@@ -1197,7 +1592,12 @@
             "type": "Song",
             "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
             "file_id": "96608"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     },
     "Northern Lapwing": {
         "genus": "Vanellus",
@@ -1212,6 +1612,11 @@
             "type": "song",
             "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
             "file_id": "27060"
-        }
+        },
+        "level": 1,
+        "experience": 0,
+        "correctGuesses": 0,
+        "totalGuesses": 0,
+        "experienceToNextLevel": 100
     }
 }
