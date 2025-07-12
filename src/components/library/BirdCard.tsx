@@ -13,7 +13,7 @@ interface BirdCardProps {
 
 const BirdCard = ({ bird }: BirdCardProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+  
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
 
@@ -94,55 +94,12 @@ const BirdCard = ({ bird }: BirdCardProps) => {
       </CardHeader>
 
       <CardContent className="pb-3">
-        {expanded ? (
           <div className="space-y-3">
             <p className="text-sm">{bird.description}</p>
 
-            <div>
-              <h4 className="text-sm font-medium mb-1">Caractéristiques</h4>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="text-sm">
-                  <span className="font-medium">Taille:</span> {bird.size}
-                </div>
-                <div className="text-sm">
-                  <span className="font-medium">Bec:</span> {bird.characteristics.beak}
-                </div>
-                <div className="text-sm col-span-2">
-                  <span className="font-medium">Couleurs:</span> {bird.characteristics.color.join(', ')}
-                </div>
-              </div>
-            </div>
+            
 
-            {/* <div>
-              <h4 className="text-sm font-medium mb-1">Habitat</h4>
-              <div className="flex flex-wrap gap-1">
-                {bird.habitat.map((habitat) => (
-                  <Badge key={habitat} variant="secondary" className="text-xs">
-                    {habitat}
-                  </Badge>
-                ))}
-              </div>
-            </div> */}
-
-            {/* {bird.soundMetadata && (
-              <div>
-                <h4 className="text-sm font-medium mb-1">Enregistrement</h4>
-                <div className="text-sm">
-                  <span className="font-medium">Type:</span> {bird.soundMetadata.type}
-                </div>
-                <div className="text-sm">
-                  <span className="font-medium">Pays:</span> {bird.soundMetadata.country}
-                </div>
-                <div className="text-sm">
-                  <span className="font-medium">Contributeur:</span> {bird.soundMetadata.recordingProvider}
-                </div>
-                {bird.soundFileId && (
-                  <div className="text-sm">
-                    <span className="font-medium">ID:</span> XC{bird.soundFileId}
-                  </div>
-                )}
-              </div>
-            )} */}
+            
 
             {bird.totalGuesses > 0 && (
               <div>
@@ -155,21 +112,21 @@ const BirdCard = ({ bird }: BirdCardProps) => {
                 </div>
               </div>
             )}
+
+            {bird.soundMetadata && (
+              <div>
+                <h4 className="text-sm font-medium mb-1">Enregistrement</h4>
+                <div className="text-[0.65rem] flex flex-wrap gap-x-2">
+                  <span className="font-medium">Type:</span> {bird.soundMetadata.type}
+                  {bird.soundMetadata.country && <span><span className="font-medium">Pays:</span> {bird.soundMetadata.country}</span>}
+                  {bird.soundMetadata.recordingProvider && <span><span className="font-medium">Crédit:</span> {bird.soundMetadata.recordingProvider}</span>}
+                </div>
+              </div>
+            )}
           </div>
-        ) : (
-          <p className="text-sm line-clamp-2">{bird.description}</p>
-        )}
       </CardContent>
 
-      <CardFooter className="flex justify-between pt-0">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setExpanded(!expanded)}
-          className="text-xs"
-        >
-          {expanded ? "Voir moins" : "Voir plus"}
-        </Button>
+      <CardFooter className="flex justify-end pt-0">
         <Button
           onClick={playSound}
           size="sm"
